@@ -11,8 +11,17 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
+      - name: Print repo name
+        run: echo "Hello from ${{ github.repository }}"
+
+      - uses: actions/checkout@v4
+
       - name: Run ls
-        run: ls -al
+        run: |
+          echo "ls current directory:"
+          ls -al
+          echo "ls root directory:"
+          ls -al /
 
       - name: Install Python
-        run: apt-get install python3.12
+        run: sudo apt-get install python3.12
