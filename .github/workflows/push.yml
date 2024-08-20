@@ -18,10 +18,11 @@ jobs:
 
       - name: Run ls
         run: |
+          echo "current directory location: $(pwd)"
           echo "ls current directory:"
           ls -al
           echo "ls root directory:"
           ls -al /
 
       - name: Install Python
-        run: sudo apt-get install python3.12
+        run: sudo apt-get install python3
