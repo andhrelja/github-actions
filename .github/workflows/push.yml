@@ -16,6 +16,9 @@ jobs:
       - name: Print repo name
         run: echo "Hello from ${{ github.event.repository }}"
 
+      - name: Print git diff
+        run: git diff main...${{ github.sha }}
+        
       - uses: actions/checkout@v4
 
       - name: Run ls
