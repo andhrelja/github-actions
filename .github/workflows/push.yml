@@ -8,6 +8,8 @@ jobs:
     name: deploy to staging
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v4
+      
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -19,8 +21,6 @@ jobs:
       - name: Print git diff
         run: git diff main...${{ github.sha }}
         
-      - uses: actions/checkout@v4
-
       - name: Run ls
         run: |
           echo "current directory location: $(pwd)"
